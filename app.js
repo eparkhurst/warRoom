@@ -4,11 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var warroom = require('./warroom-client')
+var http = require('http')
+var Socket = require('socket.io')
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
+//var server = http.Server(app)
+//var io = Socket(server)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,9 +26,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
+// io.on("connection", function (socket) {
+//   socket.emit("hey",{
+//     stuff:"more Stuff"
+//   })
+//   socket.on('otherEvent', function(data){
+//     console.log(data);
+//   })
+//   //warroom((error, data) => socket.emit(data))
+// })
+
+
+
+
+
 app.use(express.static("./client"))
-//app.use('/', routes);
+app.use('/', routes);
 //app.use('/users', users);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -7,7 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('generate:server');
 var http = require('http');
-
+var Socket = require('socket.io')
+var warroom = require('../warroom-client')
 /**
  * Get port from environment and store in Express.
  */
@@ -20,6 +21,19 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var io = Socket(server)
+
+io.on("connection", function (socket) {
+  //socket.emit("info",{stuff:"more Stuff"})
+  warroom((error, data) => socket.emit("info", data))
+  socket.on('getShit', function(data){
+    console.log(data)
+  });
+})
+  //warroom((error, data) => socket.emit(data))
+
+
+
 
 /**
  * Listen on provided port, on all network interfaces.
