@@ -12,18 +12,9 @@ function DataService($http){
   }
 }
 function LiveService($stateParams){
-  var socket = io()
   return{
-    num:5,
-    on:function(){
-      socket.on('info', function(data){
-        //console.log(data);
-        return data
-        //socket.emit('getShit', {formFront:"This is from the front"})
-      })
-    }
+    id: $stateParams.id
   }
-
 }
 
   // var socket = io()

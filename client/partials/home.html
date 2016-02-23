@@ -2,8 +2,10 @@
 <h1> {{live}}</h1>
 <div ng-repeat="server in servers" ui-sref="detail({id: server.id})">
   <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class= "panel-title">{{server.name}}</h3>
+    </div>
     <div class="panel-body">
-      <h1>{{server.name}}</h1>
       <h5>Operating System: {{server.os}}</h5>
       <h5>Response Time: {{server.responseTime}}</h5>
     </div>
