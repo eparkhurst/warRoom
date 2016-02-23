@@ -16,14 +16,12 @@ function LiveService($stateParams){
   return{
     num:5,
     on:function(){
-      socket.on('info', function(data){
-        //console.log(data);
+      return socket.on('info').then(function(data){
         return data
-        //socket.emit('getShit', {formFront:"This is from the front"})
       })
+        //socket.emit('getShit', {formFront:"This is from the front"})
     }
   }
-
 }
 
   // var socket = io()

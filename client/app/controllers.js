@@ -6,8 +6,9 @@ function MainController($scope, DataService, LiveService){
   DataService.getServers().then(function(blah){
     $scope.servers = blah.data
   })
-  LiveService.on()
-  console.log(LiveService.num);
+  LiveService.on().then(function(data){
+    console.log(data);
+  })
 }
 
 function DetailController($scope, LiveService){
