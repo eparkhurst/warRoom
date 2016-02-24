@@ -1,5 +1,8 @@
 <h1>Details page for: {{details.name}}</h1>
-<div class="panel panel-default">
+<div class="panel panel-default" ng-class=
+    "{red : details.responseTime > 0.5 ,
+    yellow: details.responseTime < 0.5 && server.responseTime >0.05,
+    green : details.responseTime < 0.05}">
   <div class="panel-heading">
     <h3 class= "panel-title">{{details.name}}</h3>
   </div>
