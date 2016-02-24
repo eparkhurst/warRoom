@@ -1,6 +1,7 @@
 angular.module('warRoom')
   .factory('DataService', DataService)
   .factory('LiveService', LiveService)
+  .factory('SettingsService', SettingsService)
 
 function DataService($http){
   return{
@@ -14,6 +15,12 @@ function DataService($http){
 function LiveService($stateParams){
   return{
     id: $stateParams.id
+  }
+}
+function SettingsService(){
+  return{
+    upper:0.5,
+    middle:0.05
   }
 }
 

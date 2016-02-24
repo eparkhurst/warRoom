@@ -2,9 +2,9 @@
 <h1> {{live}}</h1>
 <div ng-repeat="server in servers" ui-sref="detail({id: server.id})">
   <div class="panel panel-default" ng-class=
-  "{red : server.responseTime > 0.5 ,
-      yellow: server.responseTime < 0.5 && server.responseTime >0.05,
-      green : server.responseTime < 0.05}">
+  "{red : server.responseTime > upper ,
+      yellow: server.responseTime < upper && server.responseTime >middle,
+      green : server.responseTime < middle}">
     <div class="panel-heading">
       <h3 class= "panel-title">{{server.name}}</h3>
     </div>
